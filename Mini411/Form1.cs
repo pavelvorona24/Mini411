@@ -9,7 +9,9 @@ namespace Mini411
         public string[] NameArray = new string[100];
         public string[] PhoneArray = new string[100];
         int iCurrentIndex = 0;
+        // variable iglobal to track select record-index in arrays throuth search
         int iglobal;
+       
         public Form1()
         {
             InitializeComponent();
@@ -105,6 +107,8 @@ namespace Mini411
                     lbOutput.Items.Add("Selected customer: " + NameArray[i] + "  Phone number  " + PhoneArray[i]);
                     // added selected record to global var for subsequent add or delete
                     iglobal = i;
+                    // output hint for selected global index through search
+                    gindex.Text = Convert.ToString(iglobal);
                     break;
                 }
                 i = i + 1;
@@ -136,6 +140,8 @@ namespace Mini411
                     lbOutput.Items.Add("Selected customer: " + NameArray[i] + "  Phone number  " + PhoneArray[i]);
                     // added selected record to global var for subsequent add or delete
                     iglobal = i;
+                    // output hint for selected global index through search
+                    gindex.Text = Convert.ToString(iglobal);
                     break;
                 }
                 i = i + 1;

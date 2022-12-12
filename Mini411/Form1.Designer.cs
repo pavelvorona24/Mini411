@@ -40,6 +40,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbOutput = new System.Windows.Forms.ListBox();
+            this.gindex = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // add
@@ -163,12 +165,32 @@
             this.lbOutput.Size = new System.Drawing.Size(441, 204);
             this.lbOutput.TabIndex = 11;
             // 
+            // gindex
+            // 
+            this.gindex.AutoSize = true;
+            this.gindex.Location = new System.Drawing.Point(556, 102);
+            this.gindex.Name = "gindex";
+            this.gindex.Size = new System.Drawing.Size(0, 20);
+            this.gindex.TabIndex = 12;
+            this.gindex.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(504, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(160, 20);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Selected Record Index:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(687, 451);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.gindex);
             this.Controls.Add(this.lbOutput);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -203,5 +225,7 @@
         private Label label1;
         private Label label2;
         private ListBox lbOutput;
+        private Label gindex;
+        private Label label3;
     }
 }
