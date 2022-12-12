@@ -4,6 +4,7 @@ namespace Mini411
 {
     public partial class Form1 : Form
     {
+        //define public array variables
         public string[] NameArray = new string[100];
         public string[] PhoneArray = new string[100];
         int iCurrentIndex = 0;
@@ -24,7 +25,8 @@ namespace Mini411
 
         private void button3_Click(object sender, EventArgs e)
         {
-            {
+            {  
+                //show all button logic to reflect all the records from arrays
                 int i;
                 lbOutput.Items.Clear();
                 for (i = 0; i < iCurrentIndex; i = i + 1)
@@ -37,7 +39,8 @@ namespace Mini411
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+        { 
+            //add button logic to add attributes (name, and phone number) to array
             string name, phone;
             name = txtInput.Text;
             phone = txtInput2.Text;
@@ -58,7 +61,7 @@ namespace Mini411
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("Some error ");
+                System.Windows.Forms.MessageBox.Show("Some error just for testing ");
                 return;
             }
 
@@ -75,20 +78,17 @@ namespace Mini411
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            int i;
+            // number of customers button logic to display total number of elements in array
+            
             lbOutput.Items.Clear();
-            for (i = 0; i < iCurrentIndex; i = i + 1)
-            {
-                
-            }
-            lbOutput.Items.Add("Number of Customers: " + i);
+            lbOutput.Items.Add("Number of Customers: " + iCurrentIndex);
 
 
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            //search by name button logic to find record matching the name value added through search field
             string name;
             int i;
             name = txtInput.Text;
@@ -99,7 +99,7 @@ namespace Mini411
  
                 if (NameArray[i] == name)
                 {
-                    
+                    //if matching name found, display the entire record from 2 arrays matching the searching pattern
                     lbOutput.Items.Add("Selected customer: " + NameArray[i] + "  Phone number  " + PhoneArray[i]);
                     break;
                 }
@@ -116,7 +116,8 @@ namespace Mini411
         }
 
         private void button5_Click(object sender, EventArgs e)
-        {
+        {   
+            //search by phone number button logic to find the record matching phone number value added through search field
             string phone;
             int i;
             phone = txtInput2.Text;
@@ -127,7 +128,7 @@ namespace Mini411
 
                 if (PhoneArray[i] == phone)
                 {
-
+                    // if matching number found, display the entire record from 2 arrays matching the searching pattern
                     lbOutput.Items.Add("Selected customer: " + NameArray[i] + "  Phone number  " + PhoneArray[i]);
                     break;
                 }
