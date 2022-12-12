@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 
 namespace Mini411
 {
@@ -8,6 +9,7 @@ namespace Mini411
         public string[] NameArray = new string[100];
         public string[] PhoneArray = new string[100];
         int iCurrentIndex = 0;
+        int iglobal;
         public Form1()
         {
             InitializeComponent();
@@ -101,6 +103,8 @@ namespace Mini411
                 {
                     //if matching name found, display the entire record from 2 arrays matching the searching pattern
                     lbOutput.Items.Add("Selected customer: " + NameArray[i] + "  Phone number  " + PhoneArray[i]);
+                    // added selected record to global var for subsequent add or delete
+                    iglobal = i;
                     break;
                 }
                 i = i + 1;
@@ -130,6 +134,8 @@ namespace Mini411
                 {
                     // if matching number found, display the entire record from 2 arrays matching the searching pattern
                     lbOutput.Items.Add("Selected customer: " + NameArray[i] + "  Phone number  " + PhoneArray[i]);
+                    // added selected record to global var for subsequent add or delete
+                    iglobal = i;
                     break;
                 }
                 i = i + 1;
@@ -141,6 +147,27 @@ namespace Mini411
             }
             txtInput.Clear();
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (iglobal >= 0)
+            {
+                // update phone number for selected record in array via search by name
+                PhoneArray[iglobal] = txtInput2.Text;
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if ( iglobal >= 0 )
+            {
+                // if single record selected, program deletes it from both arrays as well as decrement icurrentindex
+                NameArray = NameArray.Where((source, index) => index != iglobal).ToArray();
+                PhoneArray = PhoneArray.Where((source, index) => index != iglobal).ToArray();
+                iCurrentIndex = iCurrentIndex - 1;
+                System.Windows.Forms.MessageBox.Show("Record Deleted from array");
+            }
         }
     }
     }
